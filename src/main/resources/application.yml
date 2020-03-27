@@ -1,0 +1,29 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      group_id: KafkaGroup1
+      enable_auto_commit: false
+      #value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: jp.co.iti.kafkafrontendservice
+    producer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      client_id: KafkaClient1
+      #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+# user defined properties:
+kafka:
+  request:
+    topic: topic-request
+  reply:
+    topic: topic-response
+  group:
+    id: KafkaGroup1
